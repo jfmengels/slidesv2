@@ -23,6 +23,10 @@ describe('slides - module loading', () => {
     expect(state.getIn(['modules', ref, 'slides']).toJS()).to.deep.equal(slides)
   })
 
+  it('should set currentPosition to 0', () => {
+    expect(state.getIn(['modules', ref, 'currentPosition'])).to.equal(0)
+  })
+
   it('should add a new module when module is not yet present, but modules is not empty', () => {
     const newRef = '456.A'
     const newSlides = [{
@@ -32,13 +36,17 @@ describe('slides - module loading', () => {
       a: 7,
       b: 8
     }]
+    state = state.setIn(['modules', ref, 'currentPosition'], 5)
 
     const nextState = reducer(state, questionModuleLoad(newRef, newSlides))
+    // Should not affect other refs
     expect(nextState.getIn(['modules', ref, 'slides']).toJS()).to.deep.equal(slides)
+    expect(nextState.getIn(['modules', ref, 'currentPosition'])).to.equal(5)
     expect(nextState.getIn(['modules', newRef, 'slides']).toJS()).to.deep.equal(newSlides)
+    expect(nextState.getIn(['modules', newRef, 'currentPosition'])).to.equal(0)
   })
 
-  it('should override a module when it is already present', () => {
+  it('should override a module when it is already present, and reset the currentPosition', () => {
     const newSlides = [{
       a: 5,
       b: 6
@@ -46,9 +54,11 @@ describe('slides - module loading', () => {
       a: 7,
       b: 8
     }]
+    state = state.setIn(['modules', ref, 'currentPosition'], 5)
 
     const nextState = reducer(state, questionModuleLoad(ref, newSlides))
     expect(nextState.getIn(['modules', ref, 'slides']).toJS()).to.not.deep.equal(slides)
     expect(nextState.getIn(['modules', ref, 'slides']).toJS()).to.deep.equal(newSlides)
+    expect(nextState.getIn(['modules', ref, 'currentPosition'])).to.equal(0)
   })
 })
