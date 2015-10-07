@@ -1,0 +1,6 @@
+public/**/*.test.js
+server/**/*.test.js
+--reporter spec
+--compilers js:babel/register
+--require ./test/test_helper.js
+--recursive
