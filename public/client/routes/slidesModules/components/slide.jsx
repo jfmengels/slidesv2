@@ -12,34 +12,39 @@ export default class Slide extends React.Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      selectedAnswer: -1
+      selectedIndex: -1
     }
+  }
+
+  slidesToListItems (selectedIndex) {
+    return (choice, index) => (
+      <li key={index}
+        onClick={() => this.onSelect(index)}
+        className={index === selectedIndex ? styles.selected : ''}
+      >
+        {choice.get('label')}
+      </li>
+    )
   }
 
   onSelect (choiceIndex) {
     this.setState({
-      selectedAnswer: choiceIndex
+      selectedIndex: choiceIndex
     })
   }
 
   onValidate () {
-    const { data, onSendAnswer } = this.props;
-    const answer = data.getIn(['question', 'content', 'choices', this.state.selectedAnswer, 'value'])
-    console.log(answer);
+    const { data, onSendAnswer } = this.props
+    const answer = data.getIn(['question', 'content', 'choices', this.state.selectedIndex, 'value'])
     onSendAnswer(answer)
   }
 
   render () {
-    const { data } = this.props;
+    const { data } = this.props
+    const { selectedIndex } = this.state
     const choices = data
       .getIn(['question', 'content', 'choices'])
-      .map((choice, index) => (
-        <li key={index}
-            onClick={() => this.onSelect(index)}
-            className={index === this.state.selectedAnswer ? styles.selected : ''}>
-          {choice.get('label')}
-        </li>
-      ))
+      .map(this.slidesToListItems(selectedIndex))
 
     return (
       <div>
@@ -49,7 +54,7 @@ export default class Slide extends React.Component {
           {choices}
         </ul>
         <ValidateButton
-          disabled={this.state.selectedAnswer === -1}
+          disabled={selectedIndex === -1}
           onValidate={() => this.onValidate()}
         />
       </div>

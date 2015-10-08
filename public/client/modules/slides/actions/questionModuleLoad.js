@@ -1,9 +1,10 @@
 import { QUESTION_MODULE_LOAD } from '../constants'
 
-export default (ref, slides) => {
+export default (moduleRef, slides, graph) => {
   return {
-    ref,
+    moduleRef,
     slides,
+    graph,
     type: QUESTION_MODULE_LOAD
   }
 }
