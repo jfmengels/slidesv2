@@ -1,19 +1,22 @@
 import { expect } from 'chai'
 
 import reducer from './'
-import questionModuleLoad from '../actions/questionModuleLoad'
+import { questionModuleLoad } from '../actions'
 
 import slides from './slides.test.fixture.json'
 import graph from './graph.test.fixture.json'
 
 describe('slides - module loading', () => {
-  let state, moduleRef
+
+  let state, moduleRef = graph.ref
+  const startState = reducer(
+    reducer(startState, questionModuleLoad(moduleRef, slides, graph)),
+    { type: '@@INIT' }
+  )
 
   beforeEach(() => {
     moduleRef = graph.ref
-
-    state = reducer(undefined, { type: '@@INIT' })
-    state = reducer(state, questionModuleLoad(moduleRef, slides, graph))
+    state = startState
   })
 
   it('should add a new module when modules field is empty', () => {
