@@ -1,445 +1,209 @@
 [{
-    "_id": "55803d905c684e8a9e8afffd",
-    "ref": "9.A2.8",
+    "ref": "9.A.1",
+    "chapter_ref": "9.A",
     "question": {
+        "header": "Combien fait 1 + 3 ?",
+        "type": "qcm",
         "content": {
-            "answers": [
-                [
-                    "sli_4k4BqQRtWj.choice_02"
-                ]
-            ],
             "choices": [{
-                "value": "sli_4k4BqQRtWj.choice_01",
-                "label": "sli_4k4BqQRtWj.choice_01",
-                "_id": "55fffb6e24770d7600ae868f",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.1.0",
+                "value": "4",
+                "label": "4"
             }, {
-                "value": "sli_4k4BqQRtWj.choice_02",
-                "label": "sli_4k4BqQRtWj.choice_02",
-                "_id": "55fffb6e24770d7600ae868e",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.1.1",
+                "value": "3",
+                "label": "3"
             }, {
-                "value": "sli_4k4BqQRtWj.choice_03",
-                "label": "sli_4k4BqQRtWj.choice_03",
-                "_id": "55fffb6e24770d7600ae868d",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.1.2",
+                "value": "5",
+                "label": "5"
             }, {
-                "value": "sli_4k4BqQRtWj.choice_04",
-                "label": "sli_4k4BqQRtWj.choice_04",
-                "_id": "55fffb6e24770d7600ae868c",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.1.3",
+                "value": "13",
+                "label": "13"
             }]
-        },
-        "explanation": "sli_4k4BqQRtWj.explanation",
-        "header": "sli_4k4BqQRtWj.header",
-        "type": "qcm"
-    },
-    "clue": "sli_4k4BqQRtWj.clue",
-    "klf": "sli_4k4BqQRtWj.klf",
-    "tips": "sli_4k4BqQRtWj.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6e24770d7600ae868b",
-        "views": {
-            "fromList": 1
-        },
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
+        }
+    }
 }, {
-    "_id": "55803d915c684e8a9e8b0015",
-    "ref": "9.A2.4",
+    "ref": "9.A.2",
+    "chapter_ref": "9.A",
     "question": {
+        "header": "Combien fait 0 * 99 ?",
+        "type": "qcm",
         "content": {
-            "answers": [
-                [
-                    "sli_Ekxr97RtZj.choice_02"
-                ]
-            ],
             "choices": [{
-                "value": "sli_Ekxr97RtZj.choice_01",
-                "label": "sli_Ekxr97RtZj.choice_01",
-                "_id": "55fffb6e24770d7600ae86fb",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.2.0",
+                "value": "-0",
+                "label": "-0"
             }, {
-                "value": "sli_Ekxr97RtZj.choice_02",
-                "label": "sli_Ekxr97RtZj.choice_02",
-                "_id": "55fffb6e24770d7600ae86fa",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.2.1",
+                "value": "+0",
+                "label": "+0"
             }, {
-                "value": "sli_Ekxr97RtZj.choice_03",
-                "label": "sli_Ekxr97RtZj.choice_03",
-                "_id": "55fffb6e24770d7600ae86f9",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.2.2",
+                "value": "99",
+                "label": "99"
+            }, {
+                "ref": "9.A.2.3",
+                "value": "990",
+                "label": "990"
             }]
-        },
-        "explanation": "sli_Ekxr97RtZj.explanation",
-        "header": "sli_Ekxr97RtZj.header",
-        "type": "qcm"
-    },
-    "clue": "sli_Ekxr97RtZj.clue",
-    "klf": "sli_Ekxr97RtZj.klf",
-    "tips": "sli_Ekxr97RtZj.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6e24770d7600ae86f8",
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
+        }
+    }
 }, {
-    "_id": "55803d915c684e8a9e8b0016",
-    "ref": "9.A2.9",
+    "ref": "9.A.3",
+    "chapter_ref": "9.A",
     "question": {
+        "header": "Un mammiphère est à un caniche ce qu'un insecte est à un(e) ?",
+        "type": "qcm",
         "content": {
-            "answers": [
-                [
-                    "sli_EkrH5XCF~s.choice_02"
-                ],
-                [
-                    "sli_EkrH5XCF~s.choice_03"
-                ],
-                [
-                    "sli_EkrH5XCF~s.choice_04"
-                ],
-                [
-                    "sli_EkrH5XCF~s.choice_05"
-                ]
-            ],
-            "id": "sli_EkrH5XCF~s.choice_1",
-            "placeholder": "sli_EkrH5XCF~s.placeholder",
-            "label": "sli_EkrH5XCF~s.label"
-        },
-        "explanation": "sli_EkrH5XCF~s.explanation",
-        "header": "sli_EkrH5XCF~s.header",
-        "type": "basic"
-    },
-    "clue": "sli_EkrH5XCF~s.clue",
-    "klf": "sli_EkrH5XCF~s.klf",
-    "tips": "sli_EkrH5XCF~s.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6e24770d7600ae86fc",
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
-}, {
-    "_id": "55803d915c684e8a9e8b002e",
-    "ref": "9.A2.5",
-    "question": {
-        "content": {
-            "answers": [
-                [
-                    "sli_EyWS9mAK~j.choice_01"
-                ]
-            ],
             "choices": [{
-                "placeholder": "sli_EyWS9mAK~j.placeholder_01",
-                "label": "sli_EyWS9mAK~j.label_01",
-                "name": "inp19439",
-                "type": "text",
-                "_id": "55fffb6e24770d7600ae8760",
-                "items": [],
-                "media": {
-                    "src": []
-                }
-            }],
-            "matchOrder": true,
-            "template": "sli_EyWS9mAK~j.template"
-        },
-        "explanation": "sli_EyWS9mAK~j.explanation",
-        "header": "sli_EyWS9mAK~j.header",
-        "type": "template"
-    },
-    "clue": "sli_EyWS9mAK~j.clue",
-    "klf": "sli_EyWS9mAK~j.klf",
-    "tips": "sli_EyWS9mAK~j.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6e24770d7600ae875f",
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
-}, {
-    "_id": "55803d915c684e8a9e8b0046",
-    "ref": "9.A2.1",
-    "question": {
-        "content": {
-            "matchOrder": false,
-            "answers": [
-                [
-                    "sli_EkjVcXRYZo.choice_02"
-                ]
-            ],
-            "choices": [{
-                "value": "sli_EkjVcXRYZo.choice_01",
-                "label": "sli_EkjVcXRYZo.choice_01",
-                "_id": "55fffb6f24770d7600ae87d0",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.3.0",
+                "value": "cheval",
+                "label": "cheval"
             }, {
-                "value": "sli_EkjVcXRYZo.choice_02",
-                "label": "sli_EkjVcXRYZo.choice_02",
-                "_id": "55fffb6f24770d7600ae87cf",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.3.1",
+                "value": "alien",
+                "label": "alien"
             }, {
-                "value": "sli_EkjVcXRYZo.choice_03",
-                "label": "sli_EkjVcXRYZo.choice_03",
-                "_id": "55fffb6f24770d7600ae87ce",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.3.2",
+                "value": "araigné",
+                "label": "araigné"
             }, {
-                "value": "sli_EkjVcXRYZo.choice_04",
-                "label": "sli_EkjVcXRYZo.choice_04",
-                "_id": "55fffb6f24770d7600ae87cd",
-                "items": [],
-                "media": {
-                    "src": []
-                }
-            }, {
-                "value": "sli_EkjVcXRYZo.choice_05",
-                "label": "sli_EkjVcXRYZo.choice_05",
-                "_id": "55fffb6f24770d7600ae87cc",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.3.3",
+                "value": "mille-pattes",
+                "label": "mille-pattes"
             }]
-        },
-        "explanation": "sli_EkjVcXRYZo.explanation",
-        "header": "sli_EkjVcXRYZo.header",
-        "type": "qcmDrag"
-    },
-    "clue": "sli_EkjVcXRYZo.clue",
-    "klf": "sli_EkjVcXRYZo.klf",
-    "tips": "sli_EkjVcXRYZo.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6f24770d7600ae87cb",
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
+        }
+    }
 }, {
-    "_id": "55803d915c684e8a9e8b0047",
-    "ref": "9.A2.6",
+    "ref": "9.A.4",
+    "chapter_ref": "9.A",
     "question": {
+        "header": "Qui a volé l'orange du marchand ?",
+        "type": "qcm",
         "content": {
-            "answers": [
-                [
-                    "sli_E1zB97Rt~i.choice_02"
-                ],
-                [
-                    "sli_E1zB97Rt~i.choice_03"
-                ]
-            ],
-            "id": "sli_E1zB97Rt~i.choice_1",
-            "placeholder": "sli_E1zB97Rt~i.placeholder",
-            "label": "sli_E1zB97Rt~i.label"
-        },
-        "explanation": "sli_E1zB97Rt~i.explanation",
-        "header": "sli_E1zB97Rt~i.header",
-        "type": "basic"
-    },
-    "clue": "sli_E1zB97Rt~i.clue",
-    "klf": "sli_E1zB97Rt~i.klf",
-    "tips": "sli_E1zB97Rt~i.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6d24770d7600ae8625",
-        "views": {
-            "fromLesson": 1
-        },
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
-}, {
-    "_id": "55803d915c684e8a9e8b005f",
-    "ref": "9.A2.2",
-    "question": {
-        "content": {
-            "answers": [
-                [
-                    "sli_Nk1r9XAFbs.choice_03"
-                ]
-            ],
             "choices": [{
-                "value": "sli_Nk1r9XAFbs.choice_01",
-                "label": "sli_Nk1r9XAFbs.choice_01",
-                "_id": "55fffb6e24770d7600ae868a",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.4.0",
+                "value": "Les politiciens",
+                "label": "Les politiciens"
             }, {
-                "value": "sli_Nk1r9XAFbs.choice_02",
-                "label": "sli_Nk1r9XAFbs.choice_02",
-                "_id": "55fffb6e24770d7600ae8689",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.4.1",
+                "value": "Le marchand",
+                "label": "Le marchand"
             }, {
-                "value": "sli_Nk1r9XAFbs.choice_03",
-                "label": "sli_Nk1r9XAFbs.choice_03",
-                "_id": "55fffb6e24770d7600ae8688",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.4.2",
+                "value": "Jean",
+                "label": "Jean"
             }, {
-                "value": "sli_Nk1r9XAFbs.choice_04",
-                "label": "sli_Nk1r9XAFbs.choice_04",
-                "_id": "55fffb6e24770d7600ae8687",
-                "items": [],
-                "media": {
-                    "src": []
-                }
-            }, {
-                "value": "sli_Nk1r9XAFbs.choice_05",
-                "label": "sli_Nk1r9XAFbs.choice_05",
-                "_id": "55fffb6e24770d7600ae8686",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.4.3",
+                "value": "Radjiv",
+                "label": "Radjiv"
             }]
-        },
-        "explanation": "sli_Nk1r9XAFbs.explanation",
-        "header": "sli_Nk1r9XAFbs.header",
-        "type": "qcm"
-    },
-    "clue": "sli_Nk1r9XAFbs.clue",
-    "klf": "sli_Nk1r9XAFbs.klf",
-    "tips": "sli_Nk1r9XAFbs.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6e24770d7600ae8685",
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
+        }
+    }
 }, {
-    "_id": "55803d915c684e8a9e8b0060",
-    "ref": "9.A2.7",
+    "ref": "9.A.5",
+    "chapter_ref": "9.A",
     "question": {
+        "header": "1, 2, 3, ..., 5 ?",
+        "type": "qcm",
         "content": {
-            "matchOrder": false,
-            "answers": [
-                [
-                    "sli_V1Xrc7AYbj.choice_03"
-                ]
-            ],
             "choices": [{
-                "value": "sli_V1Xrc7AYbj.choice_01",
-                "label": "sli_V1Xrc7AYbj.choice_01",
-                "_id": "55fffb6f24770d7600ae87d5",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.5.0",
+                "value": "5",
+                "label": "5"
             }, {
-                "value": "sli_V1Xrc7AYbj.choice_02",
-                "label": "sli_V1Xrc7AYbj.choice_02",
-                "_id": "55fffb6f24770d7600ae87d4",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.5.1",
+                "value": "2^2",
+                "label": "2^2"
             }, {
-                "value": "sli_V1Xrc7AYbj.choice_03",
-                "label": "sli_V1Xrc7AYbj.choice_03",
-                "_id": "55fffb6f24770d7600ae87d3",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.5.2",
+                "value": "42",
+                "label": "42"
             }, {
-                "value": "sli_V1Xrc7AYbj.choice_04",
-                "label": "sli_V1Xrc7AYbj.choice_04",
-                "_id": "55fffb6f24770d7600ae87d2",
-                "items": [],
-                "media": {
-                    "src": []
-                }
+                "ref": "9.A.5.3",
+                "value": "43",
+                "label": "43"
             }]
-        },
-        "explanation": "sli_V1Xrc7AYbj.explanation",
-        "header": "sli_V1Xrc7AYbj.header",
-        "type": "qcmDrag"
-    },
-    "clue": "sli_V1Xrc7AYbj.clue",
-    "klf": "sli_V1Xrc7AYbj.klf",
-    "tips": "sli_V1Xrc7AYbj.tips",
-    "lessons": [{
-        "poster": "med_VkDKhL9Ws.mini",
-        "description": "les_NytK285bi.description",
-        "videoId": "med_EyutnL5Wj.videoId",
-        "mimeType": "application/vimeo",
-        "type": "video",
-        "_id": "55fffb6f24770d7600ae87d1",
-        "src": []
-    }],
-    "chapter_id": "55803d8f1b7c7327010da27a",
-    "chapter_ref": "9.A2"
+        }
+    }
+}, {
+    "ref": "9.A.6",
+    "chapter_ref": "9.A",
+    "question": {
+        "header": "Combien fait 16 * 16 ?",
+        "type": "qcm",
+        "content": {
+            "choices": [{
+                "ref": "9.A.6.0",
+                "value": "256",
+                "label": "256"
+            }, {
+                "ref": "9.A.6.1",
+                "value": "2^8",
+                "label": "2^8"
+            }, {
+                "ref": "9.A.6.2",
+                "value": "1616",
+                "label": "1616"
+            }, {
+                "ref": "9.A.6.3",
+                "value": "356",
+                "label": "356"
+            }]
+        }
+    }
+}, {
+    "ref": "9.A.7",
+    "chapter_ref": "9.A",
+    "question": {
+        "header": "Combien fait 16 * 16 ?",
+        "type": "qcm",
+        "content": {
+            "choices": [{
+                "ref": "9.A.7.0",
+                "value": "256",
+                "label": "256"
+            }, {
+                "ref": "9.A.7.1",
+                "value": "2^8",
+                "label": "2^8"
+            }, {
+                "ref": "9.A.7.2",
+                "value": "1616",
+                "label": "1616"
+            }, {
+                "ref": "9.A.7.3",
+                "value": "356",
+                "label": "356"
+            }]
+        }
+    }
+}, {
+    "ref": "9.A.8",
+    "chapter_ref": "9.A",
+    "question": {
+        "header": "Combien fait 16 * 16 ?",
+        "type": "qcm",
+        "content": {
+            "choices": [{
+                "ref": "9.A.8.0",
+                "value": "256",
+                "label": "256"
+            }, {
+                "ref": "9.A.8.1",
+                "value": "2^8",
+                "label": "2^8"
+            }, {
+                "ref": "9.A.8.2",
+                "value": "1616",
+                "label": "1616"
+            }, {
+                "ref": "9.A.8.3",
+                "value": "356",
+                "label": "356"
+            }]
+        }
+    }
 }]
