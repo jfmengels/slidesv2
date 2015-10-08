@@ -8,6 +8,10 @@ import Slide from '../components/slide'
 const store = createStore()
 
 export default class SlidesModules extends React.Component {
+  static propTypes = {
+    params: React.PropTypes.object.isRequired
+  }
+
   constructor (props, context) {
     super(props, context)
     this.state = store.getState()
@@ -18,27 +22,30 @@ export default class SlidesModules extends React.Component {
 
   componentDidMount () {
     if (!store.getState().getIn(['slides', 'modules', this.props.params.ref])) {
-      setTimeout(function() {
+      // setTimeout(function() {
         store.dispatch(questionModuleLoad('9.A', slidesData))
-      }, 1000)
+      // }, 1000)
     }
+  }
+
+  onSendAnswer (answer) {
+    console.log(answer)
   }
 
   render () {
     const debug = <Debug store={store} />
     const currentModule = store.getState().getIn(['slides', 'modules', this.props.params.ref])
-
     if (!currentModule) {
       return <div>Loading... {debug}</div>
     }
 
     const currentSlide = currentModule.getIn(['slides', currentModule.get('currentPosition')])
-
     return (
     <div>
       <Slide
         moduleRef={this.props.params.ref}
         data={currentSlide}
+        onSendAnswer={this.onSendAnswer}
       />
       {debug}
     </div>
