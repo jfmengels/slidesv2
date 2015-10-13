@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "slidesv2",
   "version": "1.0.0",
-  "description": "react-boilerplate",
+  "description": "A proof of concept for slides with conditional paths",
   "main": "app.js",
   "scripts": {
     "test": "npm run lint && npm run test-unit",
@@ -67,10 +67,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfmengels/react-boilerplate.git"
+    "url": "git+https://github.com/jfmengels/slidesv2.git"
   },
   "bugs": {
-    "url": "https://github.com/jfmengels/react-boilerplate/issues"
+    "url": "https://github.com/jfmengels/slidesv2/issues"
   },
-  "homepage": "https://github.com/jfmengels/react-boilerplate#readme"
+  "homepage": "https://github.com/jfmengels/slidesv2#readme"
 }
