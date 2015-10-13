@@ -35,8 +35,11 @@ export default class Slide extends React.Component {
 
   onValidate () {
     const { data, onSendAnswer } = this.props
-    const answer = data.getIn(['question', 'content', 'choices', this.state.selectedIndex, 'value'])
-    onSendAnswer(answer)
+    const answer = data.getIn(['question', 'content', 'choices', this.state.selectedIndex, 'ref'])
+    this.setState({
+      selectedIndex: -1
+    })
+    onSendAnswer([answer])
   }
 
   render () {

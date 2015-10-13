@@ -1,7 +1,7 @@
 import React from 'react'
 
 import createStore from '../../../store'
-import { questionModuleLoad } from '../../../modules/slides/actions'
+import { questionModuleLoad, validateAnswer } from '../../../modules/slides/actions'
 import Debug from '../../app/components/Debug'
 import Slide from '../components/slide'
 import Loading from '../components/loading'
@@ -32,7 +32,7 @@ export default class SlidesModules extends React.Component {
   }
 
   onSendAnswer (answer) {
-    console.log(answer)
+    store.dispatch(validateAnswer(this.props.params.ref, answer))
   }
 
   render () {
@@ -48,7 +48,7 @@ export default class SlidesModules extends React.Component {
       <Slide
         moduleRef={this.props.params.ref}
         data={currentSlide}
-        onSendAnswer={this.onSendAnswer}
+        onSendAnswer={this.onSendAnswer.bind(this)}
       />
       {debug}
     </div>

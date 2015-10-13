@@ -27,7 +27,7 @@ const listScenarii = (moduleRef, { answers, destination }) => {
   }))
 }
 
-describe.only('slides - validating answer', () => {
+describe('slides - validating answer', () => {
   let moduleRef = graph.ref
   const startState = reducer(
     reducer(undefined, questionModuleLoad(moduleRef, slides, graph)),
@@ -49,4 +49,7 @@ describe.only('slides - validating answer', () => {
       .each((scenario) => applyAnswer(startState, scenario)) // try it out and make assertion
       .value()
   })
+
+  it('should only take the default path if no other path matches')
+  it('should do ? when no route is found')
 })
