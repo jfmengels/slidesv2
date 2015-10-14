@@ -2,10 +2,14 @@ import path from 'path'
 import express from 'express'
 import webpack from 'webpack'
 
+import api from './api'
+
 const app = express()
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const static_path = path.join(__dirname, '..', 'public')
+
+app.use('/api', api)
 
 app.use(express.static(static_path))
 
