@@ -4,9 +4,7 @@ import Immutable from 'immutable'
 
 import { QUESTION_MODULE_LOAD, VALIDATE_ANSWER } from '../constants'
 
-const initialState = {
-  modules: {}
-}
+const initialState = {}
 
 const selectPath = ({ destination, answers }, answer) => {
   if (answers === 'default') {
@@ -21,11 +19,11 @@ const selectPath = ({ destination, answers }, answer) => {
 export default createReducer(initialState, {
   [QUESTION_MODULE_LOAD]: (state, { moduleRef, slides, graph }) => {
     return state
-      .setIn(['modules', moduleRef], Immutable.fromJS({ slides, graph }))
-      .setIn(['modules', moduleRef, 'currentSlideRef'], graph.startPoints[0])
+      .setIn([moduleRef], Immutable.fromJS({ slides, graph }))
+      .setIn([moduleRef, 'currentSlideRef'], graph.startPoints[0])
   },
   [VALIDATE_ANSWER]: (state, { moduleRef, answer }) => {
-    const currentModule = state.getIn(['modules', moduleRef])
+    const currentModule = state.getIn([moduleRef])
     const graph = currentModule.get('graph')
     const currentSlideRef = currentModule.get('currentSlideRef')
 
@@ -36,6 +34,6 @@ export default createReducer(initialState, {
       }, null)
 
     return state
-      .setIn(['modules', moduleRef, 'currentSlideRef'], destination)
+      .setIn([moduleRef, 'currentSlideRef'], destination)
   }
 })

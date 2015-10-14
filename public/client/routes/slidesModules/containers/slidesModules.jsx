@@ -38,12 +38,14 @@ export default class SlidesModules extends React.Component {
   }
 
   onSendAnswer (answer) {
-    store.dispatch(validateAnswer(this.props.params.ref, answer))
+    const { ref } = this.props.params
+    store.dispatch(validateAnswer(ref, answer))
   }
 
   render () {
+    const { ref } = this.props.params
     const debug = <Debug store={store} />
-    const currentModule = store.getState().getIn(['slides', 'modules', this.props.params.ref])
+    const currentModule = store.getState().getIn(['slides', ref])
     if (!currentModule) {
       return <div><Loading />{debug}</div>
     }
@@ -52,7 +54,7 @@ export default class SlidesModules extends React.Component {
     return (
     <div>
       <Slide
-        moduleRef={this.props.params.ref}
+        moduleRef={ref}
         data={currentSlide}
         onSendAnswer={this.onSendAnswer.bind(this)}
       />

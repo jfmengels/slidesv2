@@ -10,9 +10,7 @@ describe('slides - initialization', () => {
   })
 
   it('should have an empty modules empty as the initial state', () => {
-    expect(state.toJS()).to.deep.equal({
-      modules: {}
-    })
+    expect(state.toJS()).to.deep.equal({})
   })
 
   it('should return current state when action type is undefined', () => {
