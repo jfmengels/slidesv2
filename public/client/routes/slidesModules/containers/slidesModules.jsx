@@ -5,6 +5,7 @@ import createStore from '../../../store'
 import { questionModuleLoad, validateAnswer } from '../../../modules/slides/actions'
 import Debug from '../../components/Debug'
 import Slide from '../components/slide'
+import EndSlide from '../components/endSlide'
 import Loading from '../components/loading'
 
 const store = createStore()
@@ -50,16 +51,21 @@ export default class SlidesModules extends React.Component {
       return <div><Loading />{debug}</div>
     }
 
-    const currentSlide = currentModule.getIn(['slides', currentModule.get('currentSlideRef')])
+    const slideRef = currentModule.get('currentSlideRef')
+    const endPoint = currentModule.getIn(['graph', 'endPoints', slideRef])
+
+    let slide
+    if (endPoint) {
+      slide = <EndSlide data={endPoint.toJS()} />
+    } else {
+      const currentSlide = currentModule.getIn(['slides', slideRef])
+      slide = <Slide moduleRef={ref} data={currentSlide} onSendAnswer={this.onSendAnswer.bind(this)} />
+    }
     return (
-    <div>
-      <Slide
-        moduleRef={ref}
-        data={currentSlide}
-        onSendAnswer={this.onSendAnswer.bind(this)}
-      />
-      {debug}
-    </div>
+      <div>
+        {slide}
+        {debug}
+      </div>
     )
   }
 }
