@@ -9,6 +9,11 @@ router.get('/', (req, res) => {
   res.send(data)
 })
 
+router.get('/list', (req, res) => {
+  const graphRefs = _.map(data, ({ ref, name }) => ({ ref, name }))
+  res.send(graphRefs)
+})
+
 router.get('/:ref', (req, res) => {
   const { ref } = req.params
   const graph = _.find(data, (g) => g.ref === ref)
