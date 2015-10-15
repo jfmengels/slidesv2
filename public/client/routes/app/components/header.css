@@ -1,8 +1,0 @@
-.blue {
-  color: blue;
-}
-
-.normal {
-  composes: blue;
-  font-size: 3em;
-}

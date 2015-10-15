@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import createStore from '../../../store'
 import { questionModuleLoad, validateAnswer } from '../../../modules/slides/actions'
-import Debug from '../../app/components/Debug'
+import Debug from '../../components/Debug'
 import Slide from '../components/slide'
 import Loading from '../components/loading'
 

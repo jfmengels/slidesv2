@@ -5,7 +5,7 @@ import ModuleList from './containers/moduleList'
 import SlidesModules from './containers/slidesModules'
 
 export default (
-  <Route path='/modules' component={ModuleList}>
+  <Route path='/' component={ModuleList}>
     <Route path=':ref' component={SlidesModules} />
   </Route>
 )
