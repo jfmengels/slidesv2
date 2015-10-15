@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import createStore from '../../../store'
-import { questionModuleLoad, validateAnswer } from '../../../modules/slides/actions'
+import { questionModuleLoad, validateAnswer } from '../../../reducers/slides/actions'
 import Debug from '../../components/Debug'
 import Slide from '../components/slide'
 import EndSlide from '../components/endSlide'
