@@ -1,34 +1,42 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
+
+import { loadModuleList } from '../../../reducers/modules/actions'
 
 import Loading from '../components/loading'
 
+function mapStateToProps (state) {
+  return {
+    modules: state.get('modules')
+  }
+}
+
+const mapDispatchToProps = {
+  loadModuleList
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class ModuleList extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node
-  }
-
-  constructor (props, context) {
-    super(props, context)
-    this.state = {
-      modules: []
-    }
+    children: React.PropTypes.node,
+    modules: PropTypes.object.isRequired,
+    loadModuleList: PropTypes.func.isRequired
   }
 
   componentDidMount () {
-    axios.get('/api/graphs/list')
-    .then(({ data: modules }) => {
-      this.setState({
-        modules: modules
+    if (this.props.modules.size === 0) {
+      axios.get('/api/graphs/list')
+      .then(({ data: modules }) => {
+        this.props.loadModuleList(modules)
       })
-    })
+    }
   }
 
   render () {
-    const { modules } = this.state
-    const { children } = this.props
-    if (modules.length === 0) {
+    const { children, modules } = this.props
+    if (modules.size === 0) {
       return (
         <div>
           <Loading />
@@ -37,7 +45,7 @@ export default class ModuleList extends React.Component {
       )
     }
 
-    const links = modules.map(({ ref, name }, index) => (
+    const links = modules.toJS().map(({ ref, name }, index) => (
       <li key={index}>
         <Link to={`/${ref}`}>
           {name}

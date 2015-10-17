@@ -1,29 +1,36 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import axios from 'axios'
 
-import createStore from '../../../store'
 import { questionModuleLoad, validateAnswer } from '../../../reducers/slides/actions'
-import Debug from '../../components/Debug'
 import Slide from '../components/slide'
 import EndSlide from '../components/endSlide'
 import Loading from '../components/loading'
 
-const store = createStore()
-
-export default class SlidesModules extends React.Component {
-  static propTypes = {
-    params: React.PropTypes.object.isRequired
+function mapStateToProps (state) {
+  return {
+    slides: state.get('slides')
   }
+}
 
-  constructor (props, context) {
-    super(props, context)
-    this.state = store.getState()
-    store.subscribe(() => {
-      this.setState(store.getState())
-    })
+const mapDispatchToProps = {
+  questionModuleLoad,
+  validateAnswer
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class SlidesModules extends Component {
+  static propTypes = {
+    params: PropTypes.object.isRequired,
+    slides: PropTypes.object.isRequired,
+    questionModuleLoad: PropTypes.func.isRequired,
+    validateAnswer: PropTypes.func.isRequired
   }
 
   componentDidMount () {
+    if (this.props.slides.get('graph')) {
+      return
+    }
     const { ref } = this.props.params
     axios.all([
       axios.get(`/api/slides/${ref}`),
@@ -34,38 +41,31 @@ export default class SlidesModules extends React.Component {
         map[slide.ref] = slide
         return map
       }, {})
-      store.dispatch(questionModuleLoad(ref, slidesMap, graphs))
+      this.props.questionModuleLoad(ref, slidesMap, graphs)
     }))
   }
 
   onSendAnswer (answer) {
     const { ref } = this.props.params
-    store.dispatch(validateAnswer(ref, answer))
+    this.props.validateAnswer(ref, answer)
   }
 
   render () {
+    const { slides } = this.props
     const { ref } = this.props.params
-    const debug = <Debug store={store} />
-    const currentModule = store.getState().getIn(['slides', ref])
+    const currentModule = slides.get(ref)
     if (!currentModule) {
-      return <div><Loading />{debug}</div>
+      return <Loading />
     }
 
     const slideRef = currentModule.get('currentSlideRef')
     const endPoint = currentModule.getIn(['graph', 'endPoints', slideRef])
 
-    let slide
     if (endPoint) {
-      slide = <EndSlide data={endPoint.toJS()} />
-    } else {
-      const currentSlide = currentModule.getIn(['slides', slideRef])
-      slide = <Slide moduleRef={ref} data={currentSlide} onSendAnswer={this.onSendAnswer.bind(this)} />
+      return <EndSlide data={endPoint.toJS()} />
     }
-    return (
-      <div>
-        {slide}
-        {debug}
-      </div>
-    )
+
+    const currentSlide = currentModule.getIn(['slides', slideRef])
+    return <Slide moduleRef={ref} data={currentSlide} onSendAnswer={this.onSendAnswer.bind(this)} />
   }
 }

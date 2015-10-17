@@ -21,6 +21,7 @@
     "css-loader": "^0.19.0",
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
+    "history": "^1.12.5",
     "immutable": "^3.7.5",
     "lodash": "^3.10.1",
     "qs": "^5.1.0",
