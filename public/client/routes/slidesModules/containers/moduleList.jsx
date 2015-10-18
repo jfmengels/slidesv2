@@ -25,13 +25,11 @@ export default class ModuleList extends React.Component {
     loadModuleList: PropTypes.func.isRequired
   }
 
-  componentDidMount () {
-    if (this.props.modules.size === 0) {
-      axios.get('/api/graphs/list')
-      .then(({ data: modules }) => {
-        this.props.loadModuleList(modules)
-      })
-    }
+  async componentDidMount () {
+    if (this.props.modules.size !== 0) return
+
+    const { data: modules } = await axios.get('/api/graphs/list')
+    this.props.loadModuleList(modules)
   }
 
   render () {

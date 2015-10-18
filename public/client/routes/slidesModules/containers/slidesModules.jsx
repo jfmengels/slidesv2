@@ -27,22 +27,18 @@ export default class SlidesModules extends Component {
     validateAnswer: PropTypes.func.isRequired
   }
 
-  componentDidMount () {
-    if (this.props.slides.get('graph')) {
-      return
-    }
+  async componentDidMount () {
     const { ref } = this.props.params
-    axios.all([
+    const [{ data: slides }, { data: graphs }] = await axios.all([
       axios.get(`/api/slides/${ref}`),
       axios.get(`/api/graphs/${ref}`)
     ])
-    .then(axios.spread(({ data: slides }, { data: graphs }) => {
-      const slidesMap = slides.reduce((map, slide) => {
-        map[slide.ref] = slide
-        return map
-      }, {})
-      this.props.questionModuleLoad(ref, slidesMap, graphs)
-    }))
+
+    const slidesMap = slides.reduce((map, slide) => {
+      map[slide.ref] = slide
+      return map
+    }, {})
+    this.props.questionModuleLoad(ref, slidesMap, graphs)
   }
 
   onSendAnswer (answer) {
