@@ -7,11 +7,7 @@ import Slide from '../components/slide'
 import EndSlide from '../components/endSlide'
 import Loading from '../components/loading'
 
-function mapStateToProps (state) {
-  return {
-    slides: state.get('slides')
-  }
-}
+const mapStateToProps = ({ slides }) => ({ slides })
 
 const mapDispatchToProps = {
   questionModuleLoad,
@@ -49,19 +45,19 @@ export default class SlidesModules extends Component {
   render () {
     const { slides } = this.props
     const { ref } = this.props.params
-    const currentModule = slides.get(ref)
+    const currentModule = slides[ref]
     if (!currentModule) {
       return <Loading />
     }
 
-    const slideRef = currentModule.get('currentSlideRef')
-    const endPoint = currentModule.getIn(['graph', 'endPoints', slideRef])
+    const { currentSlideRef, graph } = currentModule
+    const endPoint = graph.endPoints[currentSlideRef]
 
     if (endPoint) {
-      return <EndSlide data={endPoint.toJS()} />
+      return <EndSlide data={endPoint} />
     }
 
-    const currentSlide = currentModule.getIn(['slides', slideRef])
+    const currentSlide = currentModule.slides[currentSlideRef]
     return <Slide moduleRef={ref} data={currentSlide} onSendAnswer={this.onSendAnswer.bind(this)} />
   }
 }

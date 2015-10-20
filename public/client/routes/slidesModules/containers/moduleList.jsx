@@ -7,11 +7,7 @@ import { loadModuleList } from '../../../reducers/modules/actions'
 
 import Loading from '../components/loading'
 
-function mapStateToProps (state) {
-  return {
-    modules: state.get('modules')
-  }
-}
+const mapStateToProps = ({ modules }) => ({ modules })
 
 const mapDispatchToProps = {
   loadModuleList
@@ -21,20 +17,21 @@ const mapDispatchToProps = {
 export default class ModuleList extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
-    modules: PropTypes.object.isRequired,
+    modules: PropTypes.array.isRequired,
     loadModuleList: PropTypes.func.isRequired
   }
 
   async componentDidMount () {
-    if (this.props.modules.size !== 0) return
+    const { modules } = this.props
+    if (modules && modules.length !== 0) return
 
-    const { data: modules } = await axios.get('/api/graphs/list')
-    this.props.loadModuleList(modules)
+    const { data: loadedModules } = await axios.get('/api/graphs/list')
+    this.props.loadModuleList(loadedModules)
   }
 
   render () {
     const { children, modules } = this.props
-    if (modules.size === 0) {
+    if (!modules || modules.length === 0) {
       return (
         <div>
           <Loading />
@@ -43,7 +40,7 @@ export default class ModuleList extends React.Component {
       )
     }
 
-    const links = modules.toJS().map(({ ref, name }, index) => (
+    const links = modules.map(({ ref, name }, index) => (
       <li key={index}>
         <Link to={`/${ref}`}>
           {name}

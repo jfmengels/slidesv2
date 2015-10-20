@@ -1,6 +1,7 @@
 import _ from 'lodash'
-import { createReducer } from 'redux-immutablejs'
-import Immutable from 'immutable'
+import u from 'updeep'
+
+import { createReducer } from '../../utils'
 
 import { QUESTION_MODULE_LOAD, VALIDATE_ANSWER } from '../constants'
 
@@ -18,22 +19,22 @@ const selectPath = ({ destination, answers }, answer) => {
 
 export default createReducer(initialState, {
   [QUESTION_MODULE_LOAD]: (state, { moduleRef, slides, graph }) => {
-    return state
-      .setIn([moduleRef], Immutable.fromJS({ slides, graph }))
-      .setIn([moduleRef, 'currentSlideRef'], graph.startPoints[0])
+    const updater = {
+      [moduleRef]: { slides, graph, currentSlideRef: graph.startPoints[0] }
+    }
+    return u(updater, state)
   },
   [VALIDATE_ANSWER]: (state, { moduleRef, answer }) => {
-    const currentModule = state.getIn([moduleRef])
-    const graph = currentModule.get('graph')
-    const currentSlideRef = currentModule.get('currentSlideRef')
+    const { graph, currentSlideRef } = state[moduleRef]
 
-    const destination = graph
-      .getIn(['vertices', currentSlideRef])
+    const destination = graph.vertices[currentSlideRef]
       .reduce((dest, path) => {
-        return dest || selectPath(path.toJS(), answer)
+        return dest || selectPath(path, answer)
       }, null)
 
-    return state
-      .setIn([moduleRef, 'currentSlideRef'], destination)
+    const updater = {
+      [moduleRef]: { currentSlideRef: destination }
+    }
+    return u(updater, state)
   }
 })

@@ -8,12 +8,10 @@ import { validateAnswer, questionModuleLoad } from '../actions'
 import slides from './slides.test.fixture.json'
 import graph from './graph.test.fixture.json'
 
-const getCurrentSlideRef = (state, moduleRef) => state.getIn([moduleRef, 'currentSlideRef'])
-
 const applyAnswer = (state, { moduleRef, answer, destination }) => {
   const nextState = reducer(state, validateAnswer(moduleRef, answer))
-  const newCurrentSlideRef = getCurrentSlideRef(nextState, moduleRef)
-  expect(newCurrentSlideRef).to.equal(destination)
+  const { currentSlideRef } = nextState[moduleRef]
+  expect(currentSlideRef).to.equal(destination)
 }
 
 const listScenarii = (moduleRef, { answers, destination }) => {
@@ -40,7 +38,7 @@ describe('slides - validating answer', () => {
   })
 
   it('should set currentSlideRef to be the next slide following the graph\'s vertices', () => {
-    const currentSlideRef = getCurrentSlideRef(startState, moduleRef)
+    const { currentSlideRef } = startState[moduleRef]
     expect(currentSlideRef).to.exist
     const potentialPaths = graph.vertices[currentSlideRef]
     expect(potentialPaths).to.exist

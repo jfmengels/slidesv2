@@ -1,10 +1,8 @@
-import { createReducer } from 'redux-immutablejs'
-import Immutable from 'immutable'
-
+import { createReducer } from '../../utils'
 import { LOAD_MODULE_LIST } from '../constants'
 
-const initialState = Immutable.List()
+const initialState = []
 
 export default createReducer(initialState, {
-  [LOAD_MODULE_LIST]: (state, { moduleList }) => Immutable.List(moduleList)
+  [LOAD_MODULE_LIST]: (state, { moduleList }) => moduleList
 })

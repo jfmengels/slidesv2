@@ -4,7 +4,7 @@ A proof of concept for slides with conditional paths.
 ## Tools
 * React for rendering
 * CSS modules for styling
-* Redux for data handling and storing (with Immutable.js for immutable data)
+* Redux for data handling and storing (with updeep for immutable data)
 * Babel for ES2015/2016 code
 * Webpack for building the project and for hotloading
 

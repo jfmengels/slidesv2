@@ -17,12 +17,12 @@ export default class Slide extends React.Component {
   }
 
   slidesToListItems (selectedIndex) {
-    return (choice, index) => (
+    return ({ label }, index) => (
       <li key={index}
         onClick={() => this.onSelect(index)}
         className={index === selectedIndex ? styles.selected : ''}
       >
-        {choice.get('label')}
+        {label}
       </li>
     )
   }
@@ -35,24 +35,22 @@ export default class Slide extends React.Component {
 
   onValidate () {
     const { data, onSendAnswer } = this.props
-    const answer = data.getIn(['question', 'content', 'choices', this.state.selectedIndex, 'ref'])
-    this.setState({
-      selectedIndex: -1
-    })
+    const { selectedIndex } = this.state
+    const answer = data.question.content.choices[selectedIndex].ref
+    this.setState({ selectedIndex: -1 })
     onSendAnswer([answer])
   }
 
   render () {
-    const { data } = this.props
+    const { ref, question } = this.props.data
     const { selectedIndex } = this.state
-    const choices = data
-      .getIn(['question', 'content', 'choices'])
+    const choices = question.content.choices
       .map(this.slidesToListItems(selectedIndex))
 
     return (
       <div>
-        Question {data.get('ref')}
-        <p>{data.getIn(['question', 'header'])}</p>
+        Question {ref}
+        <p>{question.header}</p>
         <ul>
           {choices}
         </ul>
