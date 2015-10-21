@@ -20,4 +20,3 @@ describe('slides - initialization', () => {
     expect(nextState).to.equal(state)
   })
 })
-
