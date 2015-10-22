@@ -19,9 +19,7 @@
             "destination": "9.A.2",
             "description": "Bonne réponse",
             "answers": [
-                [
-                    "9.A.1.0"
-                ]
+                ["9.A.1.0"]
             ]
         }, {
             "destination": "9.A.3",

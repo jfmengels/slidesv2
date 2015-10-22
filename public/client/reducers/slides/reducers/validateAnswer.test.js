@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import _ from 'lodash'
+import u from 'updeep'
 import { expect } from 'chai'
 
 import reducer from './'
@@ -12,6 +13,12 @@ const applyAnswer = (state, { moduleRef, answer, destination }) => {
   const nextState = reducer(state, validateAnswer(moduleRef, answer))
   const { currentSlideRef } = nextState[moduleRef]
   expect(currentSlideRef).to.equal(destination)
+}
+
+const changeCurrentSlide = (state, moduleRef, currentSlideRef) => {
+  return u({
+    [moduleRef]: { currentSlideRef }
+  }, state)
 }
 
 const listScenarii = (moduleRef, { answers, destination }) => {
@@ -53,4 +60,30 @@ describe('slides - validating answer', () => {
 
   it('should only take the default path if no other path matches')
   it('should do ? when no route is found')
+
+  it('should remove lives when giving an answer that has that action', () => {
+    let nextState = reducer(startState, validateAnswer(moduleRef, ['wrong answer']))
+    expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.3')
+    expect(nextState[moduleRef].remainingLives).to.equal(2)
+  })
+
+  it('should not remove lives when giving an answer that does not have that action', () => {
+    let nextState = reducer(startState, validateAnswer(moduleRef, ['9.A.1.0']))
+    expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.2')
+    expect(nextState[moduleRef].remainingLives).to.equal(3)
+  })
+
+  it('should be able to remove more than one life, or grant some', () => {
+    let nextState, state
+
+    state = changeCurrentSlide(startState, moduleRef, '9.A.2')
+    nextState = reducer(state, validateAnswer(moduleRef, ['9.A.2.3']))
+    expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.5')
+    expect(nextState[moduleRef].remainingLives).to.equal(1)
+
+    state = changeCurrentSlide(startState, moduleRef, '9.A.3')
+    nextState = reducer(state, validateAnswer(moduleRef, ['wrong answer']))
+    expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.5')
+    expect(nextState[moduleRef].remainingLives).to.equal(1003)
+  })
 })

@@ -1,5 +1,6 @@
 {
     "ref": "9.A",
+    "name": "Un super module !",
     "startPoints": [
         "9.A.1"
     ],
@@ -18,14 +19,18 @@
             "destination": "9.A.2",
             "description": "Bonne réponse",
             "answers": [
-                [
-                    "9.A.1.0"
-                ]
-            ]
+                ["9.A.1.0"]
+            ],
+            "actions": {
+              "stars": 5
+            }
         }, {
             "destination": "9.A.3",
             "description": "Mauvaise réponse",
-            "answers": "default"
+            "answers": "default",
+            "actions": {
+              "lives": -1
+            }
         }],
         "9.A.2": [{
             "destination": "9.A.4",
@@ -40,7 +45,10 @@
             "answers": [
                 ["9.A.2.2"],
                 ["9.A.2.3"]
-            ]
+            ],
+            "actions": {
+              "lives": -2
+            }
         }],
         "9.A.3": [{
             "destination": "9.A.4",
@@ -51,7 +59,10 @@
         }, {
             "destination": "9.A.5",
             "description": "Mauvaise réponse",
-            "answers": "default"
+            "answers": "default",
+            "actions": {
+              "lives": 1000
+            }
         }],
         "9.A.4": [{
             "destination": "9.A.6",
