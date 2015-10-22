@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './livesCounter.css'
 
-export default ({ remainingLives, initialLives=3 }) => {
+export default ({ remainingLives, initialLives = 3 }) => {
   const containerStyles = []
 
   for (let i = 0; i < initialLives; i++) {
