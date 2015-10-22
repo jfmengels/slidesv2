@@ -1,4 +1,9 @@
 # Slides v2
+[![Build Status](https://travis-ci.org/jfmengels/slidesv2.png)](https://travis-ci.org/jfmengels/slidesv2)
+[![Dependencies Status](http://img.shields.io/david/jfmengels/slidesv2.svg?style=flat)](https://david-dm.org/jfmengels/slidesv2#info=dependencies)
+[![devDependencies Status](http://img.shields.io/david/dev/jfmengels/slidesv2.svg?style=flat)](https://david-dm.org/jfmengels/slidesv2#info=devDependencies)
+[![Coveralls branch](https://img.shields.io/coveralls/jfmengels/slidesv2/master.svg)](https://coveralls.io/github/jfmengels/slidesv2)
+
 A proof of concept for slides with conditional paths.
 
 ## Tools
@@ -6,9 +11,9 @@ A proof of concept for slides with conditional paths.
 * [Redux](https://github.com/rackt/redux) for a predictable app state (with [updeep](https://github.com/substantial/updeep) for immutable data)
 * [Babel](http://babeljs.io) for ES201X code
 * [Webpack](http://webpack.github.io) for building the project and for hotloading (serverside rendering coming soon)
-* [CSS modules](https://github.com/css-modules/css-modules) for styling
+* [CSS Modules](https://github.com/css-modules/css-modules) for styling
 * [Mocha](https://github.com/mochajs/mocha) for testing
-* [ESLINT](http://eslint.org) for JS linting and coding style
+* [ESLint](http://eslint.org) for JavaScript code linting and some coding style checks
 
 ## Installation
 
