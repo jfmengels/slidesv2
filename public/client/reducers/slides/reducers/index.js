@@ -28,6 +28,7 @@ export default createReducer(initialState, {
     }
     return u(updater, state)
   },
+
   [VALIDATE_ANSWER]: (state, { moduleRef, answer }) => {
     const { graph, currentSlideRef } = state[moduleRef]
 

@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 import { questionModuleLoad, validateAnswer } from '../../../reducers/slides/actions'
-import Slide from '../components/slide'
-import EndSlide from '../components/endSlide'
-import Loading from '../components/loading'
+import { Slide, Loading, EndSlide, LivesCounter } from '../components'
 
 const mapStateToProps = ({ slides }) => ({ slides })
 
@@ -50,14 +48,21 @@ export default class SlidesModules extends Component {
       return <Loading />
     }
 
-    const { currentSlideRef, graph } = currentModule
+    const { currentSlideRef, graph, remainingLives } = currentModule
     const endPoint = graph.endPoints[currentSlideRef]
+    let slideComponent
 
     if (endPoint) {
-      return <EndSlide data={endPoint} />
+      slideComponent = <EndSlide data={endPoint} />
+    } else {
+      const currentSlide = currentModule.slides[currentSlideRef]
+      slideComponent = <Slide moduleRef={ref} data={currentSlide} onSendAnswer={this.onSendAnswer.bind(this)} />
     }
-
-    const currentSlide = currentModule.slides[currentSlideRef]
-    return <Slide moduleRef={ref} data={currentSlide} onSendAnswer={this.onSendAnswer.bind(this)} />
+    return (
+      <div>
+        <LivesCounter remainingLives={remainingLives} />
+        {slideComponent}
+      </div>
+    )
   }
 }
