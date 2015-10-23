@@ -62,15 +62,23 @@ describe('slides - validating answer', () => {
   it('should do ? when no route is found')
 
   it('should remove lives when giving an answer that has that action', () => {
-    let nextState = reducer(startState, validateAnswer(moduleRef, ['wrong answer']))
+    const nextState = reducer(startState, validateAnswer(moduleRef, ['wrong answer']))
     expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.3')
     expect(nextState[moduleRef].remainingLives).to.equal(2)
   })
 
   it('should not remove lives when giving an answer that does not have that action', () => {
-    let nextState = reducer(startState, validateAnswer(moduleRef, ['9.A.1.0']))
+    const nextState = reducer(startState, validateAnswer(moduleRef, ['9.A.1.0']))
     expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.2')
     expect(nextState[moduleRef].remainingLives).to.equal(3)
+  })
+
+  it('should not make lives go under 0', () => {
+    const state = u({
+      [moduleRef]: { remainingLives: 0 }
+    }, startState)
+    const nextState = reducer(state, validateAnswer(moduleRef, ['9.A.2.3']))
+    expect(nextState[moduleRef].remainingLives).to.equal(0)
   })
 
   it('should be able to remove more than one life, or grant some', () => {

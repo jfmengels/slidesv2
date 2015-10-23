@@ -43,7 +43,7 @@ export default createReducer(initialState, {
     const updater = {
       [moduleRef]: {
         currentSlideRef: destination,
-        remainingLives: (l) => l + (lives || 0)
+        remainingLives: (l) => Math.max(0, l + (lives || 0))
       }
     }
     return u(updater, state)

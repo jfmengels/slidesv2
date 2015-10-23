@@ -59,10 +59,7 @@
         }, {
             "destination": "9.A.5",
             "description": "Mauvaise réponse",
-            "answers": "default",
-            "actions": {
-              "lives": 1000
-            }
+            "answers": "default"
         }],
         "9.A.4": [{
             "destination": "9.A.6",
@@ -86,7 +83,7 @@
         }],
         "9.A.5": [{
             "destination": "9.A.6",
-            "description": "Bonne réponse",
+            "description": "Mauvaise réponse",
             "answers": [
                 ["9.A.5.0"],
                 ["9.A.5.3"]
