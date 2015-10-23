@@ -94,4 +94,13 @@ describe('slides - validating answer', () => {
     expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.5')
     expect(nextState[moduleRef].remainingLives).to.equal(1003)
   })
+
+  it('should send to an end slide when giving answer that lowers lives to 0', () => {
+    const state = u({
+      [moduleRef]: { remainingLives: 1 }
+    }, startState)
+    const nextState = reducer(state, validateAnswer(moduleRef, ['wrong answer']))
+    expect(nextState[moduleRef].currentSlideRef).to.equal('9.A.END.1')
+    expect(nextState[moduleRef].remainingLives).to.equal(0)
+  })
 })

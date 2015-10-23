@@ -7,7 +7,10 @@
     "endPoints": {
         "9.A.END.1": {
             "type": "text",
-            "content": "Nope, vous avez tout raté..."
+            "content": "Nope, vous avez tout raté...",
+            "when": {
+              "lives": 0
+            }
         },
         "9.A.END.2": {
             "type": "text",
