@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import { loadModuleList } from '../../../reducers/modules/actions'
+import { loadModuleList } from '../../../state/modules/actions'
 
 import Loading from '../components/loading'
 
