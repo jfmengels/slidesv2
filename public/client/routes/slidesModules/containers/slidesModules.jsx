@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
-import { questionModuleLoad, validateAnswer } from '../../../state/slides/actions'
+import { questionModuleLoad, validateAnswer } from '../../../state/actions'
 import { Slide, Loading, EndSlide, LivesCounter } from '../components'
 
 const mapStateToProps = ({ slides }) => ({ slides })
