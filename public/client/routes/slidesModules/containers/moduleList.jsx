@@ -4,8 +4,7 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { loadModuleList } from '../../../state/actions'
-
-import Loading from '../components/loading'
+import { Loading } from '../components'
 
 const mapStateToProps = ({ modules }) => ({ modules })
 

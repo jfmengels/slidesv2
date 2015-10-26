@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 
 import routes from './routes'
 import createStore from './store'
-import Debug from './routes/components/debug'
+import { Debug } from './routes/components'
 
 const store = createStore()
 

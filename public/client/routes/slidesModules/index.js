@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router'
 
-import ModuleList from './containers/moduleList'
-import SlidesModules from './containers/slidesModules'
+import { ModuleList, SlidesModules } from './containers'
 
 export default (
   <Route path='/' component={ModuleList}>
