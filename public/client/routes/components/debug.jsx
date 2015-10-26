@@ -9,7 +9,7 @@ export default class Debug extends React.Component {
   render () {
     return (
       <DebugPanel top right bottom>
-        <DevTools store={this.props.store} monitor={LogMonitor} />
+        <DevTools store={this.props.store} monitor={LogMonitor} visibleOnLoad={false} />
       </DebugPanel>
     )
   }
