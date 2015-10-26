@@ -1,17 +1,24 @@
 import { compose, createStore, applyMiddleware } from 'redux'
-import { devTools } from 'redux-devtools'
+import { devTools, persistState } from 'redux-devtools'
 import thunk from 'redux-thunk'
 
 import { reducers } from './state'
 
 const middleware = [
   applyMiddleware(thunk),
-  devTools()
+  devTools(),
+  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 ]
 
 const finalCreateStore = compose(...middleware)(createStore)
 
 export default (initialState) => {
-  const store = reducers(initialState)
-  return finalCreateStore(reducers, store)
+  const store = finalCreateStore(reducers, reducers(initialState))
+  if (module.hot) {
+    module.hot.accept('./state', () => {
+      const nextRootReducer = require('./state').reducers
+      store.replaceReducer(nextRootReducer)
+    })
+  }
+  return store
 }
