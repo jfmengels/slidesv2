@@ -1,8 +1,10 @@
 import React from 'react'
+import CSSModules from 'react-css-modules'
 
 import ValidateButton from './validateButton'
 import styles from './slide.css'
 
+@CSSModules(styles)
 export default class Slide extends React.Component {
   static propTypes = {
     data: React.PropTypes.object.isRequired,
@@ -20,7 +22,7 @@ export default class Slide extends React.Component {
     return ({ label }, index) => (
       <li key={index}
         onClick={() => this.onSelect(index)}
-        className={index === selectedIndex ? styles.selected : ''}
+        styleName={index === selectedIndex ? 'selected' : ''}
       >
         {label}
       </li>
