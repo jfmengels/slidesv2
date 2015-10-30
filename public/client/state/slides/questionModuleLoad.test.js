@@ -1,8 +1,7 @@
 import { expect } from 'chai'
 import u from 'updeep'
 
-import reducer from './'
-import { questionModuleLoad } from '../actions'
+import reducer, { questionModuleLoad } from './'
 
 import slidesFixture from './slides.test.fixture.json'
 import graphFixture from './graph.test.fixture.json'

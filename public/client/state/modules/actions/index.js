@@ -1,1 +1,0 @@
-export loadModuleList from './loadModuleList'

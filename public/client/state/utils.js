@@ -3,13 +3,6 @@ import u from 'updeep'
 
 const immutable = (state) => u(state, null)
 
-export const createConstants = (names) => {
-  return names.reduce((constants, name) => {
-    constants[name] = name
-    return constants
-  }, {})
-}
-
 const noopFunc = (state, action) => state
 
 export const createReducer = (initialState, reducerFuncs) => {
@@ -47,11 +40,11 @@ export const createReducer = (initialState, reducerFuncs) => {
  * }
  */
 export const mergeActions = (stateHandlers) => {
-  const numberOfActions = _.values(stateHandlers)
-    .reduce((count, { actions }) => count + _.keys(actions).length, 0)
+  const sumKeysLength = (res, handler) => res + _.keys(handler).length
+  const numberOfActions = _.reduce(stateHandlers, sumKeysLength, 0)
 
   const mergedActions = _.values(stateHandlers)
-    .reduce((allActions, { actions }) => {
+    .reduce((allActions, actions) => {
       return { ...allActions, ...actions }
     }, {})
 

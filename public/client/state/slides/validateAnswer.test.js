@@ -3,8 +3,7 @@ import _ from 'lodash'
 import u from 'updeep'
 import { expect } from 'chai'
 
-import reducer from './'
-import { validateAnswer, questionModuleLoad } from '../actions'
+import reducer, { validateAnswer, questionModuleLoad } from './'
 
 import slides from './slides.test.fixture.json'
 import graph from './graph.test.fixture.json'
